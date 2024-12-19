@@ -87,11 +87,11 @@ export default class Home extends Component{
                             var value = table_row[2];
 
                             return (
-                                <tr style={{"line-height": "20px"}}>
-                                    <td class="cell-fit" style={{"border": "none"}}>
+                                <tr style={{"lineHeight": "20px"}} key={label}>
+                                    <td className="cell-fit" style={{"border": "none"}}>
                                         <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}} fixedWidth/>{label}
                                     </td>
-                                    <td class="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
+                                    <td className="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
                                         {Formatter.formatValue(value)}
                                     </td>
                                 </tr>
@@ -122,11 +122,11 @@ export default class Home extends Component{
                             var value = table_row[2];
 
                             return (
-                                <tr style={{"line-height": "20px"}}>
-                                    <td class="cell-fit" style={{"border": "none"}}>
+                                <tr style={{"lineHeight": "20px"}} key={label}>
+                                    <td className="cell-fit" style={{"border": "none"}}>
                                         <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}} fixedWidth/>{label}
                                     </td>
-                                    <td class="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
+                                    <td className="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
                                         {Formatter.formatValueSuffix(value, 2)}
                                     </td>
                                 </tr>
@@ -147,20 +147,20 @@ export default class Home extends Component{
                             var block_link = "/search/" + block.hash;
 
                             return (
-                                <tr style={{"line-height": "20px"}}>
-                                    <td class="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
+                                <tr style={{"lineHeight": "20px"}} key={block.hash}>
+                                    <td className="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
                                         <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" style={{"marginRight": "0.25rem"}}/>
                                         <Link to={block_link}>{block.hash}</Link>
                                     </td>
-                                    <td class="cell-fit" style={{"border": "none"}}>
+                                    <td className="cell-fit" style={{"border": "none"}}>
                                         <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" style={{"marginRight": "0.25rem"}}/>
                                         {block.data_request}
                                     </td>
-                                    <td class="cell-fit" style={{"border": "none"}}>
+                                    <td className="cell-fit" style={{"border": "none"}}>
                                         <FontAwesomeIcon icon={["fas", "coins"]} size="sm" style={{"marginRight": "0.25rem"}}/>
                                         {block.value_transfer}
                                     </td>
-                                    <td class="cell-fit-no-padding" style={{"border": "none"}}>
+                                    <td className="cell-fit-no-padding" style={{"border": "none"}}>
                                         {TimeConverter.convertUnixTimestamp(block.timestamp, "hour")}
                                     </td>
                                 </tr>
@@ -181,15 +181,15 @@ export default class Home extends Component{
                             var hash_link = "/search/" + transaction.hash;
 
                             return (
-                                <tr style={{"line-height": "20px"}}>
-                                    <td class="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
+                                <tr style={{"lineHeight": "20px"}} key={transaction.hash}>
+                                    <td className="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
                                         <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}}/>
                                         <Link to={hash_link}>{transaction.hash}</Link>
                                     </td>
-                                    <td class="cell-fit" style={{"border": "none"}}>
+                                    <td className="cell-fit" style={{"border": "none"}}>
                                         {TimeConverter.convertUnixTimestamp(transaction.timestamp, "hour")}
                                     </td>
-                                    <td class="cell-fit-no-padding" style={{"border": "none"}}>
+                                    <td className="cell-fit-no-padding" style={{"border": "none"}}>
                                         {
                                             transaction.confirmed
                                                 ? <FontAwesomeIcon icon={["fas", "lock"]} size="sm"/>
@@ -220,17 +220,13 @@ export default class Home extends Component{
                                         Network stats
                                     </h5>
                                 </Card.Title>
-                                <Card.Text style={{"marginBottom": "0px"}}>
-                                    {this.network_stats_card}
-                                </Card.Text>
+                                {this.network_stats_card}
                                 <Card.Title style={{"marginBottom": "0.5rem"}}>
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Supply info
                                     </h5>
                                 </Card.Title>
-                                <Card.Text style={{"marginBottom": "0px"}}>
-                                    {this.supply_stats_card}
-                                </Card.Text>
+                                {this.supply_stats_card}
                             </Card.Body>
                             <Card.Text>
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
@@ -247,9 +243,7 @@ export default class Home extends Component{
                                         Blocks
                                     </h5>
                                 </Card.Title>
-                                <Card.Text>
-                                    {this.latest_blocks_card}
-                                </Card.Text>
+                                {this.latest_blocks_card}
                             </Card.Body>
                             <Card.Text>
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
@@ -266,9 +260,7 @@ export default class Home extends Component{
                                         Data requests
                                     </h5>
                                 </Card.Title>
-                                <Card.Text>
-                                    {this.latest_data_requests_card}
-                                </Card.Text>
+                                {this.latest_data_requests_card}
                             </Card.Body>
                             <Card.Text>
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
@@ -285,9 +277,7 @@ export default class Home extends Component{
                                         Value transfers
                                     </h5>
                                 </Card.Title>
-                                <Card.Text>
-                                    {this.latest_value_transfers_card}
-                                </Card.Text>
+                                {this.latest_value_transfers_card}
                             </Card.Body>
                             <Card.Text>
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
