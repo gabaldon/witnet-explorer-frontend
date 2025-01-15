@@ -88,10 +88,11 @@ export default class Home extends Component{
 
                             return (
                                 <tr style={{"lineHeight": "20px"}} key={label}>
-                                    <td className="cell-fit" style={{"border": "none"}}>
-                                        <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}} fixedWidth/>{label}
+                                    <td className="custom-td">
+                                        <FontAwesomeIcon icon={icon} size="sm" />
                                     </td>
-                                    <td className="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
+                                    <td className="custom-td">{label}</td>
+                                    <td className="custom-td">
                                         {Formatter.formatValue(value)}
                                     </td>
                                 </tr>
@@ -113,7 +114,7 @@ export default class Home extends Component{
         ];
 
         return (
-            <Table responsive style={{"marginBottom": "0rem"}}>
+            <Table responsive>
                 <tbody>
                     {
                         table_rows.map(function(table_row) {
@@ -122,11 +123,14 @@ export default class Home extends Component{
                             var value = table_row[2];
 
                             return (
-                                <tr style={{"lineHeight": "20px"}} key={label}>
-                                    <td className="cell-fit" style={{"border": "none"}}>
-                                        <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}} fixedWidth/>{label}
+                                <tr key={label}>
+                                    <td className="custom-td">
+                                        <FontAwesomeIcon icon={icon} size="sm"/>
                                     </td>
-                                    <td className="cell-fit-no-padding" style={{"border": "none", "textAlign": "right"}}>
+                                    <td className="custom-td">
+                                        {label}
+                                    </td>
+                                    <td className="custom-td">
                                         {Formatter.formatValueSuffix(value, 2)}
                                     </td>
                                 </tr>
@@ -213,22 +217,22 @@ export default class Home extends Component{
                 <HistoryTypeahead/>
                 <Row xs={1} md={2} lg={4}>
                     <Col>
-                        <Card className="shadow pt-3 pb-2 pl-4 pr-4 mb-4 bg-white rounded">
-                            <Card.Body style={{height: "50vh", padding: "0.75rem"}}>
-                                <Card.Title style={{"marginBottom": "0.5rem"}}>
+                        <Card className="shadow bg-white mb-4 rounded">
+                            <Card.Body>
+                                <Card.Title>
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Network stats
                                     </h5>
                                 </Card.Title>
                                 {this.network_stats_card}
-                                <Card.Title style={{"marginBottom": "0.5rem"}}>
+                                <Card.Title className="card-section-spacer">
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Supply info
                                     </h5>
                                 </Card.Title>
                                 {this.supply_stats_card}
                             </Card.Body>
-                            <Card.Text>
+                            <Card.Text className="card-bottom-info">
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
                                     Last updated: {update_timestamp}
                                 </small>
@@ -245,7 +249,7 @@ export default class Home extends Component{
                                 </Card.Title>
                                 {this.latest_blocks_card}
                             </Card.Body>
-                            <Card.Text>
+                            <Card.Text className="card-bottom-info">
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
                                     Last updated: {update_timestamp}
                                 </small>
@@ -262,7 +266,7 @@ export default class Home extends Component{
                                 </Card.Title>
                                 {this.latest_data_requests_card}
                             </Card.Body>
-                            <Card.Text>
+                            <Card.Text className="card-bottom-info">
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
                                     Last updated: {update_timestamp}
                                 </small>
@@ -279,7 +283,7 @@ export default class Home extends Component{
                                 </Card.Title>
                                 {this.latest_value_transfers_card}
                             </Card.Body>
-                            <Card.Text>
+                            <Card.Text className="card-bottom-info">
                                 <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
                                     Last updated: {update_timestamp}
                                 </small>

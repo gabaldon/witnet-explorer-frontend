@@ -176,3 +176,27 @@ body {
     width: 100%;
     image-rendering: pixelated;
 }
+
+.card-section-spacer {
+    margin-top: 1rem;
+}
+
+.card-bottom-info {
+    margin-top: 1rem;
+}
+
+/* Table custom style */
+
+.custom-td {
+    border: none;
+    white-space: nowrap;
+}
+.custom-td:last-child {
+   text-align: right;
+}
+.table>:not(caption)>*>* { 
+    padding: 0.15rem 0.25rem;
+}
+.td-icon {
+    margin-right: 0.5rem;
+}
