@@ -192,7 +192,9 @@ body {
     white-space: nowrap;
 }
 .custom-td:last-child {
+    width: 100%;
    text-align: right;
+   padding-left: 1rem;
 }
 .table>:not(caption)>*>* { 
     padding: 0.15rem 0.25rem;
