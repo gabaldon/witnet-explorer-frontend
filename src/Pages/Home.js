@@ -78,7 +78,7 @@ export default class Home extends Component{
         ];
 
         return (
-            <Table responsive>
+            <Table responsive className="home-table">
                 <tbody>
                     {
                         table_rows.map(function(table_row) {
@@ -87,7 +87,7 @@ export default class Home extends Component{
                             var value = table_row[2];
 
                             return (
-                                <tr style={{"lineHeight": "20px"}} key={label}>
+                                <tr key={label}>
                                     <td className="custom-td">
                                         <FontAwesomeIcon icon={icon} size="sm" />
                                     </td>
@@ -114,7 +114,7 @@ export default class Home extends Component{
         ];
 
         return (
-            <Table responsive>
+            <Table responsive className="home-table">
                 <tbody>
                     {
                         table_rows.map(function(table_row) {
@@ -144,27 +144,27 @@ export default class Home extends Component{
 
     generateLatestBlocks(blocks) {
         return (
-            <Table responsive style={{"marginBottom": "0px"}}>
+            <Table responsive className="home-table">
                 <tbody>
                     {
                         blocks.slice(0, this.state.rows_per_card).map(function(block) {
                             var block_link = "/search/" + block.hash;
 
                             return (
-                                <tr style={{"lineHeight": "20px"}} key={block.hash}>
-                                    <td className="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
-                                        <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" style={{"marginRight": "0.25rem"}}/>
+                                <tr key={block.hash}>
+                                    <td className="custom-td col-md-10 cell-truncate" style={{"min-width": "100px"}}>
+                                        <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" style={{"marginRight": "0.5rem"}} />
                                         <Link to={block_link}>{block.hash}</Link>
                                     </td>
-                                    <td className="cell-fit" style={{"border": "none"}}>
-                                        <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" style={{"marginRight": "0.25rem"}}/>
+                                    <td className="custom-td">
+                                        <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" style={{"marginRight": "0.5rem"}}/>
                                         {block.data_request}
                                     </td>
-                                    <td className="cell-fit" style={{"border": "none"}}>
-                                        <FontAwesomeIcon icon={["fas", "coins"]} size="sm" style={{"marginRight": "0.25rem"}}/>
+                                    <td className="custom-td">
+                                        <FontAwesomeIcon icon={["fas", "coins"]} size="sm" style={{"marginRight": "0.5rem"}}/>
                                         {block.value_transfer}
                                     </td>
-                                    <td className="cell-fit-no-padding" style={{"border": "none"}}>
+                                    <td className="custom-td">
                                         {TimeConverter.convertUnixTimestamp(block.timestamp, "hour")}
                                     </td>
                                 </tr>
@@ -178,7 +178,7 @@ export default class Home extends Component{
 
     generateTransactionCard(transactions, icon) {
         return (
-            <Table responsive style={{"marginBottom": "0px"}}>
+            <Table responsive className="home-table">
                 <tbody>
                     {
                         transactions.slice(0, this.state.rows_per_card).map(function(transaction) {
@@ -186,14 +186,14 @@ export default class Home extends Component{
 
                             return (
                                 <tr style={{"lineHeight": "20px"}} key={transaction.hash}>
-                                    <td className="cell-fit cell-truncate" style={{"border": "none", "width": "100%"}}>
-                                        <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.25rem"}}/>
+                                    <td className="custom-td col-md-10 cell-truncate" style={{"min-width": "100px"}}>
+                                        <FontAwesomeIcon icon={icon} size="sm" style={{"marginRight": "0.5rem"}} />
                                         <Link to={hash_link}>{transaction.hash}</Link>
                                     </td>
-                                    <td className="cell-fit" style={{"border": "none"}}>
+                                    <td className="custom-td">
                                         {TimeConverter.convertUnixTimestamp(transaction.timestamp, "hour")}
                                     </td>
-                                    <td className="cell-fit-no-padding" style={{"border": "none"}}>
+                                    <td className="custom-td">
                                         {
                                             transaction.confirmed
                                                 ? <FontAwesomeIcon icon={["fas", "lock"]} size="sm"/>
@@ -217,31 +217,33 @@ export default class Home extends Component{
                 <HistoryTypeahead/>
                 <Row xs={1} md={2} lg={4}>
                     <Col>
-                        <Card className="shadow bg-white mb-4 rounded">
+                        <Card className="home-card shadow bg-white mb-4 rounded">
                             <Card.Body>
-                                <Card.Title>
-                                    <h5 style={{"marginBottom": "0.5rem"}}>
-                                        Network stats
-                                    </h5>
-                                </Card.Title>
-                                {this.network_stats_card}
-                                <Card.Title className="card-section-spacer">
-                                    <h5 style={{"marginBottom": "0.5rem"}}>
-                                        Supply info
-                                    </h5>
-                                </Card.Title>
-                                {this.supply_stats_card}
+                                <div class="card-body">
+                                    <Card.Title>
+                                        <h5 style={{"marginBottom": "0.5rem"}}>
+                                            Network stats
+                                        </h5>
+                                    </Card.Title>
+                                    {this.network_stats_card}
+                                    <Card.Title className="card-section-spacer">
+                                        <h5 style={{"marginBottom": "0.5rem"}}>
+                                            Supply info
+                                        </h5>
+                                    </Card.Title>
+                                    {this.supply_stats_card}
+                                </div>
                             </Card.Body>
                             <Card.Text className="card-bottom-info">
-                                <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
+                                <small>
                                     Last updated: {update_timestamp}
                                 </small>
                             </Card.Text>
                         </Card>
                     </Col>
                     <Col>
-                        <Card className="shadow pt-3 pb-2 pl-4 pr-4 mb-4 bg-white rounded">
-                            <Card.Body style={{height: "50vh", padding: "0.75rem"}}>
+                        <Card className="home-card shadow bg-white mb-4 rounded">
+                            <Card.Body>
                                 <Card.Title style={{"marginBottom": "0.5rem"}}>
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Blocks
@@ -250,15 +252,15 @@ export default class Home extends Component{
                                 {this.latest_blocks_card}
                             </Card.Body>
                             <Card.Text className="card-bottom-info">
-                                <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
+                                <small>
                                     Last updated: {update_timestamp}
                                 </small>
                             </Card.Text>
                         </Card>
                     </Col>
                     <Col>
-                        <Card className="shadow pt-3 pb-2 pl-4 pr-4 mb-4 bg-white rounded">
-                            <Card.Body style={{height: "50vh", padding: "0.75rem"}}>
+                        <Card className="home-card shadow bg-white mb-4 rounded">
+                            <Card.Body>
                                 <Card.Title style={{"marginBottom": "0.5rem"}}>
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Data requests
@@ -267,15 +269,15 @@ export default class Home extends Component{
                                 {this.latest_data_requests_card}
                             </Card.Body>
                             <Card.Text className="card-bottom-info">
-                                <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
+                                <small>
                                     Last updated: {update_timestamp}
                                 </small>
                             </Card.Text>
                         </Card>
                     </Col>
                     <Col>
-                        <Card className="shadow pt-3 pb-2 pl-4 pr-4 mb-4 bg-white rounded">
-                            <Card.Body style={{height: "50vh", padding: "0.75rem"}}>
+                        <Card className="home-card shadow bg-white mb-4 rounded">
+                            <Card.Body>
                                 <Card.Title style={{"marginBottom": "0.5rem"}}>
                                     <h5 style={{"marginBottom": "0.5rem"}}>
                                         Value transfers
@@ -284,7 +286,7 @@ export default class Home extends Component{
                                 {this.latest_value_transfers_card}
                             </Card.Body>
                             <Card.Text className="card-bottom-info">
-                                <small className="text-muted" style={{"marginLeft": "0.75rem"}}>
+                                <small>
                                     Last updated: {update_timestamp}
                                 </small>
                             </Card.Text>
