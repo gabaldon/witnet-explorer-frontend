@@ -46,7 +46,7 @@ export default class Reputation extends Component{
         .then(response => {
             const pagination_header = JSON.parse(response[0].get("X-Pagination"));
             const json_response = response[1];
-            var new_blockchain_card = this.generateBlockchainCard(json_response.blockchain, pagination_header.total);
+            var new_blockchain_card = this.generateBlockchainCard(json_response.blockchain, json_response.total_apochs);
             this.setState({
                 blockchain_card: new_blockchain_card,
                 loading: false,
