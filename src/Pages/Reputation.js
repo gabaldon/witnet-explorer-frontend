@@ -59,7 +59,7 @@ export default class Reputation extends Component{
 
             return (
                 <tr>
-                    <td className="custom-td cell-truncate" style={{"width": "60%"}}>
+                    <td className="custom-td cell-truncate">
                         {reputation_link}
                     </td>
                     <td className="custom-td">

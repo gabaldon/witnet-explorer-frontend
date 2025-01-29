@@ -15,7 +15,7 @@ export default class BlockPanel extends Component {
                     <tbody>
                         <tr>
                             <td className="custom-td">
-                                <FontAwesomeIcon icon={["fas", "cubes"]} className="td-icon" size="sm" />
+                                <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" />
                             </td>
                             <td className="custom-td">{"Block"}</td>
                             <td className="custom-td">
@@ -25,7 +25,7 @@ export default class BlockPanel extends Component {
                                 <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" />
                             </td>
                             <td className="custom-td">{"Data request weight"}</td>
-                            <td className="custom-td">
+                            <td className="custom-td text-start">
                                 {data.data_request_weight}
                             </td>
                         </tr>
@@ -43,7 +43,7 @@ export default class BlockPanel extends Component {
                             <td className="custom-td">
                                 {"Value transfer weight"}
                             </td>
-                            <td className="custom-td">
+                            <td className="custom-td text-start">
                                 {data.value_transfer_weight}
                             </td>
                         </tr>
@@ -59,7 +59,7 @@ export default class BlockPanel extends Component {
                                 <FontAwesomeIcon icon={["fas", "feather"]} size="sm" />
                             </td>
                             <td className="custom-td">{"Block weight"}</td>
-                            <td className="custom-td">
+                            <td className="custom-td text-start">
                                 {data.weight}
                             </td>
                         </tr>

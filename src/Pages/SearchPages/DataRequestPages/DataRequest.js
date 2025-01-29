@@ -22,7 +22,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Transaction"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={ transaction_link}>{transaction.hash}</Link>
                         </td>
                     </tr>
@@ -31,7 +31,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" />
                         </td>
                         <td className="custom-td">{"DRO hash"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={DRO_hash_link}>{transaction.DRO_bytes_hash}</Link>
                         </td>
                     </tr>
@@ -40,7 +40,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" />
                         </td>
                         <td className="custom-td">{"RAD hash"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={RAD_hash_link}>{transaction.RAD_bytes_hash}</Link>
                         </td>
                     </tr>
@@ -49,7 +49,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Block"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={block_link}>{transaction.block}</Link>
                         </td>
                     </tr>
@@ -63,7 +63,7 @@ export default class DataRequest extends Component {
                                             <FontAwesomeIcon icon={["fas", "user"]} size="sm"/>
                                         </td>
                                         <td className="custom-td">{"Addresses"}</td>
-                                        <td className="custom-td">
+                                        <td className="custom-td text-start">
                                             <Link to={address_link}>{address}</Link>
                                         </td>
                                     </tr>
@@ -72,7 +72,7 @@ export default class DataRequest extends Component {
                             else {
                                 return (
                                     <tr>
-                                        <td className="custom-td">
+                                        <td className="custom-td text-start">
                                             <Link to={address_link}>{address}</Link>
                                         </td>
                                     </tr>
@@ -85,7 +85,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["far", "clock"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Timestamp"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {TimeConverter.convertUnixTimestamp(transaction.timestamp, "full") + " (epoch: " + transaction.epoch + ")"}
                         </td>
                     </tr>
@@ -94,7 +94,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "check"]} size="sm"/>
                         </td>
                         <td className="custom-td">{"Status"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {
                                 transaction.confirmed
                                     ? "Confirmed"
@@ -116,7 +116,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "search"]} size="sm" fixedWidth/>
                         </td>
                         <td className="custom-td">{"Witnesses"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {data_request.witnesses}
                         </td>
                     </tr>
@@ -125,7 +125,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "trophy"]} size="sm"/>
                         </td>
                         <td className="custom-td">{"Reward"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatWitValue(data_request.witness_reward, 2)}
                         </td>
                     </tr>
@@ -134,7 +134,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["far", "handshake"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Collateral"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatWitValue(data_request.collateral, 2)}
                         </td>
                     </tr>
@@ -143,7 +143,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "percentage"]} size="sm"/>
                         </td>
                         <td className="custom-td">{"Consensus"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {data_request.consensus_percentage + "%"}
                         </td>
                     </tr>
@@ -152,7 +152,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["far", "money-bill-alt"]} size="sm"/>
                         </td>
                         <td className="custom-td">{"Miner fee"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatWitValue(data_request.miner_fee, 2)}
                         </td>
                     </tr>
@@ -161,7 +161,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "tachometer-alt"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Priority"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatValueReducingDecimals(data_request.priority, 3)}
                         </td>
                     </tr>
@@ -170,7 +170,7 @@ export default class DataRequest extends Component {
                             <FontAwesomeIcon icon={["fas", "feather"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Weight"}</td>
-                            <td className="custom-td">
+                            <td className="custom-td text-start">
                             {Formatter.formatValue(data_request.weight, 0)}
                         </td>
                     </tr>

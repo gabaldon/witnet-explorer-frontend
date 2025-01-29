@@ -84,13 +84,6 @@ body {
     border: none;
 }
 
-.cell-truncate {
-    max-width: 1px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    border: none;
-}
-
 /* stylings for cards */
 .cell-fit-card {
     padding-top: 0.5rem !important;
@@ -193,13 +186,13 @@ body {
 .custom-td {
     border: none;
     white-space: nowrap;
-    min-width: 25%;
 }
 .custom-td:last-child {
     width: 100%;
    text-align: right;
    padding-right: 0rem;
 }
+
 .table {
     margin-bottom: 0px;
 }
@@ -209,7 +202,7 @@ body {
 }
 .table>:not(caption)>*>* { 
     padding: 0.15rem 0.25rem;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
 }
 .td-icon {
     margin-right: 0.5rem;
@@ -235,6 +228,14 @@ body {
     height: max-content;
     max-height: 100%;
     overflow-x: auto;
+}
+
+.cell-truncate {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: none;
+    min-width: 25%;
+    max-width: 1px
 }
 
 @media (max-width: 700px) {

@@ -38,7 +38,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["fas", "align-justify"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Transaction"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={txn_link}>{transaction.hash}</Link>
                         </td>
                     </tr>
@@ -47,7 +47,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["fas", "cubes"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Block"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             <Link to={block_link}>{transaction.block}</Link>
                         </td>
                     </tr>
@@ -56,7 +56,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["far", "money-bill-alt"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Fee"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {
                                 this.state.showNanoWitValues
                                     ? Formatter.formatValue(transaction.fee) + " nWIT"
@@ -69,7 +69,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["fas", "feather"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Weight"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatValue(transaction.weight, 0)}
                         </td>
                     </tr>
@@ -78,7 +78,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["fas", "tachometer-alt"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Priority"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {Formatter.formatValue(transaction.priority, 0)}
                         </td>
                     </tr>
@@ -87,7 +87,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["far", "clock"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Timestamp"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {transaction_time}
                         </td>
                     </tr>
@@ -96,7 +96,7 @@ export default class ValueTransferPanel extends Component {
                             <FontAwesomeIcon icon={["fas", "check"]} size="sm" />
                         </td>
                         <td className="custom-td">{"Status"}</td>
-                        <td className="custom-td">
+                        <td className="custom-td text-start">
                             {
                                 transaction.confirmed
                                     ? "Confirmed"
